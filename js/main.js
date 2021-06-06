@@ -18710,3 +18710,20 @@ return Popper;
 //# sourceMappingURL=toast.js.map
 
 // Импортируем другие js-файлы
+document.querySelectorAll( '.advantages__wrapper' ).forEach( ( advantages__wrapper )=>{
+    let circles = $( '.inner' );
+    let angle = 360-90, dangle = 360 / circles.length, marginvalue = 300, change = 50;
+    for( let i = 0; i < circles.length; ++i ){
+      angle += dangle;
+      
+      /*add items*/
+      $(".advantages__wrapper").append("<div><div class='circle'><img src='"+$('.inner:eq('+i+')').attr('data-svg')+"' /></div><div>");
+      
+      /*move items*/
+      $('.circle:eq('+i+')').css({'transform' : `rotate(${angle}deg) translate(${(advantages__wrapper.clientWidth / 2)-4}px) rotate(-${angle}deg)`});
+      $('.inner:eq('+i+')').css({'transform' : `rotate(${angle}deg) translate(${marginvalue}px) rotate(-${angle}deg)`});
+      
+      
+      
+    }
+  });
